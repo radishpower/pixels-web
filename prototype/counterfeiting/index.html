@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>(Drug) Counterfeiting</title>
+
+    <link rel="stylesheet" href="../css/blueprint/screen.css" type="text/css" media="screen, projection">
+    <link rel="stylesheet" href="../css/blueprint/print.css" type="text/css" media="print">
+    <link rel="stylesheet" href="../css/base.css" type="text/css" media="screen, projection">
+
+    <!-- Tangle -->
+    <script type="text/javascript" src="../js/Tangle.js"></script>
+    
+    <!-- TangleKit (optional) -->
+    <link rel="stylesheet" href="../TangleKit/TangleKit.css" type="text/css">
+    <script type="text/javascript" src="../TangleKit/mootools.js"></script>
+    <script type="text/javascript" src="../TangleKit/sprintf.js"></script>
+    <script type="text/javascript" src="../TangleKit/BVTouchable.js"></script>
+    <script type="text/javascript" src="../TangleKit/TangleKit.js"></script>
+
+    <!-- jquery -->
+    <script type="text/javascript" src="../js/jquery.js"></script>
+
+    <script type="text/javascript" src="../js/base.js"></script>
+</head>
+
+<body>
+
+<!-- BANNER START -->
+<div class="text-center" id="banner">
+<div class="span-3 border text-center">  
+    <a href="#" class="caps">Cover</a>  
+</div>  
+<div class="span-3 border text-center">  
+    <a href="#" class="caps">Reference</a>  
+</div>
+<div class="span-3 border text-center">  
+    <a href="#" class="caps">Related</a>  
+</div>  
+<div class="span-3 border text-center">  
+    <a href="#" class="caps">Projects</a>  
+</div>
+<div class="span-3 border text-center">  
+    <a href="#" class="caps">About</a>  
+</div>
+</div>
+<!-- BANNER END -->
+
+<div class="container" id="container">
+
+<div class="section last" id="section-1">
+
+  <h2><strong>(Drug) Counterfeiting</strong></h2>
+  <h4><a href="http://www.gracewoo.com">Grace Woo</a>, June 2012</h4>
+
+  <h5>Motivation</h5>
+
+  <p>I didn't think that I would be a part of any counterfeiting initiatives
+when working on <a href="#">VRCodes</a> (my PhD thesis work) in the <a
+href="http://viral.media.mit.edu">Viral Spaces</a> group. The work, however,
+has attracted parallels in areas of fraud protection as well as counterfeit
+prevention</p>
+
+  <p>First, I'll preface by saying that the camera-based counterfeit prevention
+techniques that I'm about to describe are not the holy grail for fighting
+counterfeiting. The only fool-proof way to test whether or not something is
+"real" is to make a mass spectrogram test (see <a href="#">Bove</a> et al). In
+other words, specifically for the problem of detecting drug counterfeiting, it
+doesn't matter at the end of the day whether it's a real brand or a fake brand.
+The important thing is to verify whether what you are consuming is what you
+think you are consuming.</p>
+  
+  <h5>Challenge</h5>
+
+  <p>However, when travelling in a third-world country and presented with two
+pill bottles that look exactly identical, it is still not possible to pull out
+the handheld mass spectrometer to do a quick test (yet). As a result, many are
+thinking about intermediate solutions like cryptographic labels which can be
+verified with a phone call or text message. <a href="http://www.mpedigree.net/mpedigree/index.php">mPedigree</a>, <a
+href="http://www.the-star.co.ke/business/features/44621-sms-may-finally-beat-counterfeit-drugs-">orange SMS</a>, and <a href="http://www.pharmasecure.com/">Pharmasecure</a> are a few examples of
+text-message verification systems.</p>
+
+  <p>In fact, there are plenty of intermediary solutions that work with various
+levels of security. <a href="http://www.digimarc.com">Watermarks</a> are labels
+on print substrate that are difficult for the human eye to discern but can be
+picked up by a camera. <a href="#">RFIDs</a> can be deployed and verified with
+a handheld RFID reader.</p>
+
+  <p>These intermediate solutions all boil down to three components. First,
+it's important to have a good frontend. Frontend refers to the RFID itself, the
+visual mark or the text-based input sequence. It's a lot like printing good
+money. You have to make it so that it's not obvious for a human to distinguish
+between a real piece of cash and a fake piece of cash. Then, you have to have a
+camera be able to distinguish small perturbations that set the real mark apart
+from the faked mark. All of those little details that get printed on money
+serve the purpose of making it difficult to be copied by the adversary. Hence,
+comparing along this dimension implies that RFID is a better solution that a
+visual mark. Unfortunately, as we all know via common sense, with enough
+determination nearly any tag which does not embed a secure code can be
+copied.</p>
+
+  <p>The challenge in creating a tag for counterfeit protection is that it's
+not enough to make a physical tag that is hard to copy. Second, you must also
+devise a method which has enough digital capacity to carry a cryptographic key.
+This little bit of data is crucial. Thie piece of data should uniquely identify
+the thing that is being consumed. Just like those annoying one-time use Windows
+keys that you have into your "nicely-acquired" software, each object needs to
+have a unique key (at the minimum) which allows the packaging to be tallied in
+a centralized and verifying database when it is scanned.</p>
+
+  <p>That is still not enough. Third, you must create a trusted network for
+verification that is not entirely centralized. Just like money, the strength
+and participation of the users of money helps verify whether or not the codes
+in circulation are valid. Backtrack from that and it becomes obvious that you
+want as many eyes as possible checking out the validity of the scanned or
+swiped code.</p>
+
+  <p>These trusted networks can be created in a variety of ways using as much
+gatherable information as possible. For example, if there are a few "invalid"
+codes that are captured in a particular location, there's a high chance that
+everything else there is false as well. That's just one way of creating
+validation. Other ways include reputation systems, social graphs and
+specialized verifiers.</p>
+
+  <p>Going back to my own thesis work, <a href="#">VRCodes</a> an example of
+active visual codes which can embed digital information that takes advantage of
+how the camera sees something different from what we see. For example, what may
+just look like a gray surface to our eyes can actually embed a lot of data
+underneath. When applied to counterfeit protection, many of the same techniques
+can be used to create a "tag" that appears indistinguishable to our eyes but
+actually carry cryptographic information underneath.</p>
+
+  <p>In other words, <a href="#">VRCodes</a> can help hit two out of the three
+important points. When <a href="#">VRCodes</a> are used with a verification
+backend, the solution as a whole can be used to combat counterfeiting using the
+existing hardware that are in people's hands.</p>
+
+  <p>It's not easy. Even when a proposed solution fits all of the criteria from
+a technical standpoint, one must make sure that the right parties are using
+those tags. For example, it's not clear that the drug companies with the most
+amount of money to invest in these tags/verification networks are the same ones
+that have the best drugs. What happens to the non-name brands and can they
+still be encouraged to create good drugs with an intermediate verification
+system?</p>
+
+  <p>The ultimate goal is to provide the highest quality product to the right
+people regardless of prices and brand-recognition. The best way to do that is
+empowering the user with a true physical fact-checker (see universal
+tricorder).</p>
+
+<hr>
+  <h5>Contact</h5>
+
+  <p><a href="http://viral.media.mit.edu">Viral Spaces Group</a> | <a href="http://media.mit.edu">MIT Media Lab</a> | <a href="http://www.mit.edu">Massachusetts Institute of Technology</a></p>
+
+</div>
+
+</div> <!-- container -->
+</body>
+</html>
